@@ -1,1 +1,86 @@
-<p>employee-list works!</p>
+<div class="row mt-3 justify-content-end">
+    <div class="col-md-3">
+      <input type="text" class="form-control form-control-sm"  placeholder="Search" (keyup)="onSearchClick()" [(ngModel)]="searchKeyword">
+    </div>
+    <div class="col-md-1">
+      <i class="fa fa-search" aria-hidden="true"></i>
+    </div>
+  </div>
+  <div class="row mt-3 justify-content-center">
+      <div class="col-md-11">
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col" (click)="onSorting('Name')">
+                Name <i class="fa" 
+                [ngClass]="{'fa-sort-desc':orderBy() == 'Name' && sortDir == 'desc','fa-sort-asc':orderBy() == 'Name' && sortDir == 'asc'}" aria-hidden="true"></i></th>
+              <th scope="col" (click)="onSorting('Age')">
+                Age <i class="fa" 
+                [ngClass]="{'fa-sort-desc':orderBy() == 'Age' && sortDir == 'desc','fa-sort-asc':orderBy() == 'Age' && sortDir == 'asc'}"aria-hidden="true"></i></th>
+              <th scope="col" (click)="onSorting('Address')">
+                Address <i class="fa" aria-hidden="true"
+                [ngClass]="{'fa-sort-desc':orderBy() == 'Address' && sortDir == 'desc','fa-sort-asc':orderBy() == 'Address' && sortDir == 'asc'}"></i></th>
+              <th scope="col">Department</th>
+              <th scope="col" (click)="onSorting('Designation')">
+                Designation <i class="fa" aria-hidden="true"
+                [ngClass]="{'fa-sort-desc':orderBy() == 'Designation' && sortDir == 'desc','fa-sort-asc':orderBy() == 'Designation' && sortDir == 'asc'}"></i></th>
+              <th scope="col" (click)="onSorting('CreatedDate')">
+                Created Date <i class="fa" 
+                [ngClass]="{'fa-sort-desc':orderBy() == 'CreatedDate' && sortDir == 'desc','fa-sort-asc':orderBy() == 'CreatedDate' && sortDir == 'asc'}"
+                aria-hidden="true"></i></th>
+              <th scope="col" (click)="onSorting('UpdatedDate')">
+                Updated Date <i class="fa" 
+                [ngClass]="{'fa-sort-desc':orderBy() == 'UpdatedDate' && sortDir == 'desc','fa-sort-asc':orderBy() == 'UpdatedDate' && sortDir == 'asc'}"
+                aria-hidden="true"></i></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (employee of employeeList(); track $index) {
+            <tr>
+              <th scope="row">{{employee.id}}</th>
+              <td>{{employee.name}}</td>
+              <td>{{employee.age}}</td>
+              <td>{{employee.address}}</td>
+              <td>{{employee.designation}}</td>
+              <td>{{employee.createdDate}}</td>
+              <td>{{employee.updatedDate}}</td>
+              <td>
+                <!-- (click)="onUpdateRecord(employee.id)"  -->
+
+                  <div class="row">
+                      <div class="col">
+                      <i class="fa fa-pencil-square-o cursor-pointer" 
+                      style="color: blue;" 
+                      aria-hidden="true"></i>
+                      </div>
+                      <div class="col">
+                          <i class="fa fa-trash cursor-pointer"
+                          style="color: rgb(255, 0, 0);" 
+                          aria-hidden="true"></i>
+                          <!-- (click)="onDeleteButtonClick(employee.id)" -->
+
+                      </div>
+                  </div>
+              </td>
+            </tr>
+        }
+          </tbody>
+        </table>
+        <div class="row justify-content-center">
+          <div class="col-4">
+            @if (employeeList.length == 0) {
+                <span style="color: red; font-weight: 600;" cols="7">No Records to Show</span>
+            }
+          </div>
+        </div>
+  </div></div>
+  
+  <div class="row m-1 justify-content-end">
+      <div class="col-2" style="padding-left: 2%;" >
+          <button type="button" class="btn btn-outline-primary" 
+          >Add Employee</button>
+          <!-- (click)="onAddEmployeeClick()" -->
+      </div>
+  </div>

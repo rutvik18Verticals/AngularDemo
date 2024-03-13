@@ -17,8 +17,13 @@
           </li>
         </ul>
         <span class="navbar-text cursor-pointer" >
-          <a  class="nav-link" [routerLink]="['login']">
-          Login/Register</a>
+          @if (isLoggedIn()) {
+            <a class="nav-link" (click)="onLogoutClick()">
+                Logout</a>
+        }@else{
+            <a class="nav-link" [routerLink]="['login']">
+            Login/Register </a>
+            }
         </span>
       </div>
     </div>
