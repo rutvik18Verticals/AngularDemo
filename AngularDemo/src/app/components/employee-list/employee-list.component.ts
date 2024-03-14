@@ -7,6 +7,7 @@ import { ISortParams } from '../../Interfaces/shared_Models';
 import { debounceTime, map, takeUntil } from 'rxjs';
 import { NgClass } from '@angular/common';
 import { FormsModule, NgModel } from '@angular/forms';
+import { AddEditEmployeeComponent } from '../add-edit-employee/add-edit-employee.component';
 
 @Component({
   selector: 'app-employee-list',
@@ -24,10 +25,10 @@ export class EmployeeListComponent implements OnInit {
       private toastr: ToastrService,
       private ngbModal: NgbModal
     ) {
-       this.getEmployeeList();
     }
 
     ngOnInit(): void {
+      this.getEmployeeList();
   }
   /**
    * This function will be called to get all the employe list to show in the table
@@ -110,4 +111,27 @@ export class EmployeeListComponent implements OnInit {
     }
   }
 
+
+    /**
+   * This function will be called upon add employee button clcik
+   */
+    public onAddEmployeeClick() {
+      let AddEditModel = this.ngbModal.open(AddEditEmployeeComponent);
+      AddEditModel.result.then((res) => {
+        this.getEmployeeList();
+      });
+    }
+
+      /**
+   * This function will be called to open AddEditEmployeeComponent in order to update record
+   */
+  public onUpdateRecord(id: number) {
+    let AddEditModel = this.ngbModal.open(AddEditEmployeeComponent);
+    AddEditModel.componentInstance.isFromUpdate = true;
+    AddEditModel.componentInstance.employeeId = id;
+
+    AddEditModel.result.then((res) => {
+      this.getEmployeeList();
+    });
+  }
 }

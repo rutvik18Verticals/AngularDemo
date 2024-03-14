@@ -1,1 +1,83 @@
-<p>add-edit-employee works!</p>
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{isFromUpdate ? 'Edit' : 'Add'}} Employee</h4>
+    <button
+      type="button"
+      class="btn-close"
+      (click)="onClose()"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="addEditEmployeeForm" (ngSubmit)="onAddButtonClick()">
+      <div class="row">
+        <div class="col-6">
+          <div class="mb-3">
+            <label for="nameEl" class="form-label">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nameEl"
+              formControlName="Name"
+              placeholder="Enter your name"
+            />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-3">
+            <label for="ageEl" class="form-label">Age</label>
+            <input
+              type="number"
+              class="form-control"
+              id="ageEl"
+              formControlName="Age"
+              placeholder="Enter your age"
+            />
+          </div>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="addressEl" class="form-label">Address</label>
+        <input
+          type="text"
+          class="form-control"
+          id="addressEl"
+          placeholder="Enter your address"
+          formControlName="Address"
+  
+        />
+      </div>
+      <div class="row">
+
+        <div class="col-6">
+          <div class="mb-3">
+            <label for="designationEl" class="form-label">Designation</label>
+            <input
+              type="text"
+              class="form-control"
+              id="designationEl"
+              placeholder="Enter your designation"
+              formControlName="Designation"
+            />
+          </div>
+        </div>
+        <div class="col d-flex justify-content-end">
+            <div class="mt-4">
+                <label for="designationEl" class="form-label"></label>
+                <input
+                type="submit"
+                class="btn btn-outline-primary"
+                [value]="isFromUpdate ? 'Update' : 'Add'"
+              />
+          <!-- <button type="submit" class="btn btn-outline-primary" >{{isFromUpdate ? 'Update' : "Add"}}</button> -->
+        </div>
+    </div>
+      </div>
+      <!-- <div class="row justify-content-end">
+        <div class="col-3">
+          <button type="submit" class="btn btn-outline-primary" >{{isFromUpdate ? 'Update' : "Add"}}</button>
+        </div>
+      </div> -->
+    </form>
+  </div>
+  

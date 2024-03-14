@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { PasswordCheckerDirective } from '../../shared/password-checker.directive';
+import { AuthService } from '../../services/auth.service';
+import { ToastrService } from 'ngx-toastr';
+import { ILoginRegisterResponse, IRegisterRequest } from '../../Interfaces/User_Models';
 
 @Component({
   selector: 'app-register',
@@ -16,6 +19,8 @@ export class RegisterComponent {
   public isSubmitted:boolean = false;
   constructor(private fb:FormBuilder,
     private router:Router,
+    private authService:AuthService,
+    private toastr:ToastrService
     ) {
     this.loginForm = fb.group({
       username:['',[Validators.required]],
@@ -41,14 +46,21 @@ export class RegisterComponent {
     }
     let isFormValid:boolean = this.loginForm.valid
     if (isFormValid) {
-      let loggedInUser = {
+      let loggedInUser:IRegisterRequest = {
         username:this.loginForm.get('username')?.value,
-        password:this.loginForm.get('password')?.getRawValue()
+        Password:this.loginForm.get('password')?.getRawValue(),
+        Role:'employee'
       }
-      window.localStorage.setItem('userInfo',JSON.stringify(loggedInUser));
-      // this.sharedService.loggedInUser.set(loggedInUser);
-      this.router.navigate([''])
-      this.loginForm.reset();
+      this.authService.Register(loggedInUser).subscribe((res:ILoginRegisterResponse)=>{
+        if (res.isSuccess) {
+          this.toastr.success(res.message)
+          this.router.navigate([''])
+        }
+        if (res.isError) {
+          this.toastr.error(res.message)
+        }
+        
+      })
     }
   }
 }

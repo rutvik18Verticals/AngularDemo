@@ -1,0 +1,31 @@
+.sidebar{
+    background-color: rgb(36, 36, 36);
+}
+.row{
+    color: white;
+}
+
+.list-group > li{
+    font-size: 1.2vw;
+    padding-left: 5px !important;
+    padding: 10px;
+    cursor: pointer;
+    list-style-type: none;
+    color: whitesmoke;
+}
+.list-group > li:hover{
+    opacity: 0.7;
+}
+
+.sub-list-group > li{
+    font-size: 1vw;
+    padding-left: 0px !important;
+    padding: 10px;
+    cursor: pointer;
+    list-style-type: none;
+    color: whitesmoke;
+}
+.sub-list-group
+> li:hover{
+    opacity: 0.7;
+}

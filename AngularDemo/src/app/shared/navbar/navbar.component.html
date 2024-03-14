@@ -1,25 +1,45 @@
 <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">EMS</a>
+      <!-- <a class="navbar-brand" href="#">EMS</a> -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page">{{activeNav()}}</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Departments</a>
+          <!-- <li class="nav-item">
+            <a class="nav-link" [routerLink]="['employees']">Employees</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Categories</a>
-          </li>
+          </li> -->
         </ul>
         <span class="navbar-text cursor-pointer" >
           @if (isLoggedIn()) {
-            <a class="nav-link" (click)="onLogoutClick()">
-                Logout</a>
+            <span style="cursor: pointer;"
+            placement="bottom-right"
+            popoverClass="login-popover"
+            [ngbPopover]="loginPopover">
+            <i class="fa fa-user-circle" aria-hidden="true"></i> &nbsp;
+            <i class="fa fa-caret-down" aria-hidden="true"></i> &nbsp;
+            <span>{{username()}}</span>
+          </span>
+            <ng-template #loginPopover>
+              <div class="row">
+                <div class="col">
+                  <span>
+                    <a style="cursor: pointer;" class="nav-link p-1" (click)="onLogoutClick()">
+                      <i class="fa fa-sign-out" aria-hidden="true"></i>  Logout</a></span>
+                    <a style="cursor: pointer;" class="nav-link p-1">
+                      <i class="fa fa-user-o" aria-hidden="true"></i>
+                      Profile</a>
+                </div>
+              </div>
+              
+            </ng-template>
+            
         }@else{
             <a class="nav-link" [routerLink]="['login']">
             Login/Register </a>

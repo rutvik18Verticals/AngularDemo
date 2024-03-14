@@ -1,0 +1,64 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col text-center">
+            <h4>EMS</h4>
+        </div>
+        <div class="hr"></div>
+    </div>
+    <ul class="list-group">
+        <li class="" >
+            <a class="nav-link" [routerLink]="['dashboard']" (click)="onNavChange('Dashboard')">
+                <i class="fa fa-tachometer" aria-hidden="true"></i> &nbsp; <span>Dashboard</span>
+            </a>
+        </li>
+        @if (Role() == 'admin') {
+            <li class=""  (click)="onNavChange('Department')">
+                <i class="fa fa-building-o" aria-hidden="true"></i> &nbsp; <span>Department</span>
+            </li>
+            <li class=""  (click)="onNavChange('Employees')">
+                <a class="nav-link" [routerLink]="['employees']">
+                <i class="fa fa-users" aria-hidden="true"></i> &nbsp; <span>Employees</span>
+                </a>
+            </li>
+        }
+        @if (Role()) {
+        <li class=""  (click)="onNavChange('Salary')"
+        data-bs-toggle="collapse" href="#salarySubCategory" role="button" aria-expanded="false">
+            <i class="fa fa-money" aria-hidden="true"></i> &nbsp; <span>Salary</span> &nbsp;<i style="text-align: end !important;" class="fa fa-chevron-right" aria-hidden="true"></i> 
+        </li>
+
+        <div class="collapse" id="salarySubCategory">
+            <ul class="sub-list-group">
+                <li class="">
+                    <i class="fa fa-inr" aria-hidden="true"></i> &nbsp; <span>Generate salary</span>
+                </li>
+                <li class="">
+                    <i class="fa fa-credit-card" aria-hidden="true"></i> &nbsp; <span>Check salary</span>
+                </li>
+            </ul>
+        </div>
+
+        <li class=""  data-bs-toggle="collapse" href="#leaveSubCategory" role="button" aria-expanded="false"
+            aria-controls="leaveSubCategory">
+            <i class="fa fa-laptop" aria-hidden="true"></i> &nbsp; <span>Leave</span> &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i> 
+        </li>
+        <div class="collapse" id="leaveSubCategory">
+            <ul class="sub-list-group">
+                <li class="">
+                    <i class="fa fa-plus" aria-hidden="true"></i> &nbsp; <span>Apply new leave</span>
+                </li>
+                <li class="">
+                    <i class="fa fa-minus" aria-hidden="true"></i> &nbsp; <span>Cancel leave</span>
+                </li>
+                <li class="">
+                    <i class="fa fa-star-o" aria-hidden="true"></i> &nbsp; <span>Pending leaves</span>
+                </li>
+                <li class="">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; <span>Leave requests</span>
+                </li>
+                
+            </ul>
+        </div>
+    }
+    </ul>
+</div>

@@ -11,7 +11,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
     var token = JSON.parse(userInfo || "[]").AuthToken
     if (!token) {
       authService.navigateToLogin();
-      if (!req.url.includes('Login')) {
+      if (!req.url.includes('Login') && !req.url.includes('Register')) {
         toastr.error("You must have to login first")
       }
     }

@@ -47,19 +47,19 @@
               <td>{{employee.createdDate}}</td>
               <td>{{employee.updatedDate}}</td>
               <td>
-                <!-- (click)="onUpdateRecord(employee.id)"  -->
 
                   <div class="row">
                       <div class="col">
                       <i class="fa fa-pencil-square-o cursor-pointer" 
+                      (click)="onUpdateRecord(employee.id)" 
                       style="color: blue;" 
                       aria-hidden="true"></i>
                       </div>
                       <div class="col">
                           <i class="fa fa-trash cursor-pointer"
+                          (click)="onDeleteButtonClick(employee.id)"
                           style="color: rgb(255, 0, 0);" 
                           aria-hidden="true"></i>
-                          <!-- (click)="onDeleteButtonClick(employee.id)" -->
 
                       </div>
                   </div>
@@ -70,7 +70,7 @@
         </table>
         <div class="row justify-content-center">
           <div class="col-4">
-            @if (employeeList.length == 0) {
+            @if (employeeList().length == 0) {
                 <span style="color: red; font-weight: 600;" cols="7">No Records to Show</span>
             }
           </div>
@@ -79,8 +79,8 @@
   
   <div class="row m-1 justify-content-end">
       <div class="col-2" style="padding-left: 2%;" >
-          <button type="button" class="btn btn-outline-primary" 
+          <button type="button" class="btn btn-outline-primary"
+          (click)="onAddEmployeeClick()" 
           >Add Employee</button>
-          <!-- (click)="onAddEmployeeClick()" -->
       </div>
   </div>
