@@ -23,7 +23,8 @@ export class SidebarComponent implements OnInit {
   }
 
 
-  onNavChange(activeNav:string){
+  onNavChange(activeNav:string,icon:string){
     this.sharedService.currentActiveNav.set(activeNav);
+    this.sharedService.currentActiveNavIcon.set(icon)
   }
 }

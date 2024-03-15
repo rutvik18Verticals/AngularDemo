@@ -3,11 +3,12 @@ import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { NgbPopover, NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedService } from '../shared.service';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink,NgbPopover],
+  imports: [RouterLink,NgbPopover,NgClass],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
   encapsulation: ViewEncapsulation.None,
@@ -15,6 +16,7 @@ import { SharedService } from '../shared.service';
 export class NavbarComponent implements OnInit,AfterViewInit {
   public isLoggedIn = this.authService.IsLoggedIn;
   public activeNav = this.sharedService.currentActiveNav;
+  public icon = this.sharedService.currentActiveNavIcon;
   public username = this.authService.userName;
   constructor(
     private router:Router,

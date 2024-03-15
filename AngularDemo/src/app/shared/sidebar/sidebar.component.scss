@@ -1,31 +1,125 @@
-.sidebar{
-    background-color: rgb(36, 36, 36);
+.sidebar {
+  background-color: rgb(36, 36, 36);
 }
-.row{
-    color: white;
-}
-
-.list-group > li{
-    font-size: 1.2vw;
-    padding-left: 5px !important;
-    padding: 10px;
-    cursor: pointer;
-    list-style-type: none;
-    color: whitesmoke;
-}
-.list-group > li:hover{
-    opacity: 0.7;
+.row {
+  color: white;
 }
 
-.sub-list-group > li{
-    font-size: 1vw;
+.list-group > li {
+  // font-size: 1.2vw;
+  padding-left: 5px !important;
+  padding: 10px;
+  cursor: pointer;
+  list-style-type: none;
+  color: whitesmoke;
+}
+.list-group > li:hover {
+  opacity: 0.7;
+}
+
+.sub-list-group > li {
+  font-size: 15px;
+  padding-left: 0px !important;
+  padding: 10px;
+  cursor: pointer;
+  list-style-type: none;
+  color: whitesmoke;
+}
+.sub-list-group > li:hover {
+  opacity: 0.7;
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  /* CSS */
+}
+
+/* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+  */
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  /* CSS */
+}
+
+/* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+  */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* CSS */
+}
+
+/* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+  */
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  /* CSS */
+    /* CSS */
+    .list-group > li {
+        font-size: 16px !important;
+        padding-left: 0px !important;
+        padding: 10px;
+      }
+      .sub-list-group > li {
+        font-size: 10px !important;
+        padding-left: 0px !important;
+        padding: 10px;
+      }
+      .sub-list-group{
+        padding-left: 15px !important;
+      }
+}
+
+/* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+  */
+
+@media (min-width: 481px) and (max-width: 767px) {
+  /* CSS */
+    /* CSS */
+    .list-group > li {
+        font-size: 16px !important;
+        padding-left: 0px !important;
+        padding: 10px;
+      }
+      .sub-list-group > li {
+        font-size: 10px !important;
+        padding-left: 0px !important;
+        padding: 10px;
+      }
+      .sub-list-group{
+        padding-left: 15px !important;
+      }
+}
+
+/* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+
+@media (min-width: 320px) and (max-width: 480px) {
+  /* CSS */
+  .list-group > li {
+    font-size: 16px !important;
     padding-left: 0px !important;
     padding: 10px;
-    cursor: pointer;
-    list-style-type: none;
-    color: whitesmoke;
-}
-.sub-list-group
-> li:hover{
-    opacity: 0.7;
+  }
+  .sub-list-group > li {
+    font-size: 10px !important;
+    padding-left: 0px !important;
+    padding: 10px;
+  }
+  .sub-list-group{
+    padding-left: 15px !important;
+  }
 }

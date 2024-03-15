@@ -1,4 +1,95 @@
-<div class="row">
-    <div class="col-3">
+
+<div class="container-fluid">
+    <div class="row">
+        @if (role() == 'admin') {
+
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card mb-3" (click)="navigateTo('employees')" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-5">
+                    <img src="assets/Images/employee.png" class="img-fluid rounded-start" alt="Employees">
+                  </div>
+                  <div class="col-7">
+                    <div class="card-body">
+                      <h5 class="card-title">Employees</h5>
+                      <p class="card-text">Add update or delete the employees</p>
+                      <!-- <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    }
+
+
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card mb-3" (click)="yetToImplement()" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-5">
+                    <img src="assets/Images/leave.jpg" class="img-fluid rounded-start" alt="Leaves">
+                  </div>
+                  <div class="col-7">
+                    <div class="card-body">
+                      <h5 class="card-title">Leaves</h5>
+                      <p class="card-text">manage leaves taken by employees</p>
+                      <!-- <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card mb-3" (click)="yetToImplement()" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-5">
+                    <img src="assets/Images/salary.jpg" class="img-fluid rounded-start" alt="Salary">
+                  </div>
+                  <div class="col-7">
+                    <div class="card-body">
+                      <h5 class="card-title">Salary</h5>
+                      <p class="card-text">Manage salary for the employees</p>
+                      <!-- <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card mb-3" (click)="yetToImplement()" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-5">
+                    <img src="assets/Images/department.PNG" class="img-fluid rounded-start" alt="Department">
+                  </div>
+                  <div class="col-7">
+                    <div class="card-body">
+                      <h5 class="card-title">Department</h5>
+                      <p class="card-text">Manage departments for the employees</p>
+                      <!-- <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card mb-3" (click)="yetToImplement()" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-5">
+                    <img src="assets/Images/task.png"  class="img-fluid rounded-start" alt="Tasks">
+                  </div>
+                  <div class="col-7">
+                    <div class="card-body">
+                      <h5 class="card-title">Tasks</h5>
+                      <p class="card-text">Manage tasks given to you</p>
+                      <!-- <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+
     </div>
+    
 </div>

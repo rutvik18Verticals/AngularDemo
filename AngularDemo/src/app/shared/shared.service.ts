@@ -5,6 +5,7 @@ import { Injectable, signal } from '@angular/core';
 })
 export class SharedService {
   public currentActiveNav = signal<string>('Dashboard');
+  public currentActiveNavIcon = signal<string>('fa-tachometer');
   constructor() { }
 
 

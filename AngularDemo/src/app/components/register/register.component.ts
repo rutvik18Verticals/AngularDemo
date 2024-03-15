@@ -26,6 +26,7 @@ export class RegisterComponent {
       username:['',[Validators.required]],
       password:['',Validators.required],
       confirmPassword:['',Validators.required],
+      role:['',Validators.required],
     })
   }
   ngOnInit() {
@@ -34,7 +35,6 @@ export class RegisterComponent {
 
   public onSubmit(){
     this.isSubmitted = true
-
     let password,confirmPassword;
     password = this.loginForm.get('password')?.getRawValue();
     confirmPassword = this.loginForm.get('confirmPassword')?.getRawValue();
@@ -49,7 +49,7 @@ export class RegisterComponent {
       let loggedInUser:IRegisterRequest = {
         username:this.loginForm.get('username')?.value,
         Password:this.loginForm.get('password')?.getRawValue(),
-        Role:'employee'
+        Role:this.loginForm.get('role')?.value,
       }
       this.authService.Register(loggedInUser).subscribe((res:ILoginRegisterResponse)=>{
         if (res.isSuccess) {
@@ -61,6 +61,14 @@ export class RegisterComponent {
         }
         
       })
+    }else{
+      for (const key in this.loginForm.controls) {
+        let error = this.loginForm.controls[key].errors
+        if (error) {
+          this.toastr.error(key + ' is requied');
+          return
+        }
+      }
     }
   }
 }
